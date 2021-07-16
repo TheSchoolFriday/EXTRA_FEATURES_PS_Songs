@@ -8,10 +8,10 @@
     tools:context=".secondActivity">
 
     <Button
-        android:id="@+id/button"
+        android:id="@+id/btnAll5Stars"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Button" />
+        android:text="Show all 5 Star Songs!" />
 
     <ListView
         android:id="@+id/lv"

@@ -38,14 +38,34 @@ public class Song implements Serializable {
         return stars;
     }
 
+    public void set_id(int _id) {
+        this._id = _id;
+    }
+
+    public void setTitle(String title) {
+        this.title = title;
+    }
+
+    public void setSingers(String singers) {
+        this.singers = singers;
+    }
+
+    public void setYear(int year) {
+        this.year = year;
+    }
+
+    public void setStars(int stars) {
+        this.stars = stars;
+    }
+
     @Override
     public String toString() {
-        return "Song{" +
-                "_id=" + _id +
-                ", title='" + title + '\'' +
-                ", singers='" + singers + '\'' +
-                ", year=" + year +
-                ", stars=" + stars +
-                '}';
+
+        String messageToStars = "";
+        for (int i = 0; i < stars; i++) {
+            messageToStars += "*";
+        }
+
+        return title + "\n" + singers + " - " + year + "\n" + messageToStars;
     }
 }
