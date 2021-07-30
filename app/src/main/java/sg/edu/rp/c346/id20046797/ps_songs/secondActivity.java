@@ -5,9 +5,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
-import android.widget.Adapter;
 import android.widget.AdapterView;
-import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.ListView;
 
@@ -17,6 +15,7 @@ public class secondActivity extends AppCompatActivity {
 
     ListView lv;
     Button btnShowStars;
+    CustomAdapter caa;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -29,8 +28,9 @@ public class secondActivity extends AppCompatActivity {
         DBHelper dbh = new DBHelper(this);
 
         ArrayList<Song> al = new ArrayList<>(dbh.getAllSongs());
-        ArrayAdapter<Song> aa = new ArrayAdapter<Song>(this, android.R.layout.simple_list_item_1, al);
-        lv.setAdapter(aa);
+        caa = new CustomAdapter(this, R.layout.row, al);
+//        ArrayAdapter<Song> aa = new ArrayAdapter<Song>(this, android.R.layout.simple_list_item_1, al);
+        lv.setAdapter(caa);
 
         lv.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
@@ -48,7 +48,7 @@ public class secondActivity extends AppCompatActivity {
 
                 al.clear();
                 al.addAll(DBH.getSongsByStars(5));
-                aa.notifyDataSetChanged();
+                caa.notifyDataSetChanged();
             }
         });
     }

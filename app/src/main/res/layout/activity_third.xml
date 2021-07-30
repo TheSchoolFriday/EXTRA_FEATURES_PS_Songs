@@ -64,43 +64,48 @@
         android:layout_height="wrap_content"
         android:text="Stars" />
 
-    <RadioGroup
-        android:id="@+id/rbGroup2"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal">
+<!--    <RadioGroup-->
+<!--        android:id="@+id/rbGroup2"-->
+<!--        android:layout_width="match_parent"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        android:orientation="horizontal">-->
 
-        <RadioButton
-            android:checked="true"
-            android:id="@+id/rbStar1"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="1" />
+<!--        <RadioButton-->
+<!--            android:checked="true"-->
+<!--            android:id="@+id/rbStar1"-->
+<!--            android:layout_width="wrap_content"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:text="1" />-->
 
-        <RadioButton
-            android:id="@+id/rbStar2"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="2" />
+<!--        <RadioButton-->
+<!--            android:id="@+id/rbStar2"-->
+<!--            android:layout_width="wrap_content"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:text="2" />-->
 
-        <RadioButton
-            android:id="@+id/rbStar3"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="3" />
+<!--        <RadioButton-->
+<!--            android:id="@+id/rbStar3"-->
+<!--            android:layout_width="wrap_content"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:text="3" />-->
 
-        <RadioButton
-            android:id="@+id/rbStar4"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="4" />
+<!--        <RadioButton-->
+<!--            android:id="@+id/rbStar4"-->
+<!--            android:layout_width="wrap_content"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:text="4" />-->
 
-        <RadioButton
-            android:id="@+id/rbStar5"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="5" />
-    </RadioGroup>
+<!--        <RadioButton-->
+<!--            android:id="@+id/rbStar5"-->
+<!--            android:layout_width="wrap_content"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:text="5" />-->
+<!--    </RadioGroup>-->
+
+    <RatingBar
+        android:id="@+id/ratingBar3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" />
 
     <LinearLayout
         android:layout_width="match_parent"

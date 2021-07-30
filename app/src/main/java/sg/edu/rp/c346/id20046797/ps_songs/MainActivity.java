@@ -11,6 +11,7 @@ import android.widget.EditText;
 import android.widget.ListView;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
+import android.widget.RatingBar;
 import android.widget.Toast;
 
 import java.util.ArrayList;
@@ -20,6 +21,7 @@ public class MainActivity extends AppCompatActivity {
     EditText etSongTitle, etSingersName, etSongYear;
     RadioGroup starGroup;
     Button btnInsert, btnShowList;
+    RatingBar rbStar;
 
     ArrayList<Song> SongList = new ArrayList<Song>();
 
@@ -33,7 +35,8 @@ public class MainActivity extends AppCompatActivity {
         etSingersName = findViewById(R.id.etSingersName);
         etSongYear = findViewById(R.id.etSongYear);
 
-        starGroup = findViewById(R.id.rbGroup);
+//        starGroup = findViewById(R.id.rbGroup);
+        rbStar = findViewById(R.id.ratingBar);
 
         btnInsert = findViewById(R.id.btnInsert);
         btnShowList = findViewById(R.id.btnShowList);
@@ -44,20 +47,22 @@ public class MainActivity extends AppCompatActivity {
                 String songTitle = etSongTitle.getText().toString();
                 String singersName = etSingersName.getText().toString();
                 int songYear = Integer.parseInt(etSongYear.getText().toString());
-                int starRating = 0;
-                int selectedID = starGroup.getCheckedRadioButtonId();
+                int starRating = Math.round(rbStar.getRating());
+                Toast.makeText(MainActivity.this, String.valueOf(starRating), Toast.LENGTH_SHORT).show();
 
-                if (selectedID == R.id.rbStar1) {
-                    starRating = 1;
-                } else if (selectedID == R.id.rbStar2) {
-                    starRating = 2;
-                } else if (selectedID == R.id.rbStar3) {
-                    starRating = 3;
-                } else if (selectedID == R.id.rbStar4) {
-                    starRating = 4;
-                } else if (selectedID == R.id.rbStar5) {
-                    starRating = 5;
-                }
+//                int selectedID = starGroup.getCheckedRadioButtonId();
+//
+//                if (selectedID == R.id.rbStar1) {
+//                    starRating = 1;
+//                } else if (selectedID == R.id.rbStar2) {
+//                    starRating = 2;
+//                } else if (selectedID == R.id.rbStar3) {
+//                    starRating = 3;
+//                } else if (selectedID == R.id.rbStar4) {
+//                    starRating = 4;
+//                } else if (selectedID == R.id.rbStar5) {
+//                    starRating = 5;
+//                }
 
                 DBHelper DBH = new DBHelper(MainActivity.this);
                 DBH.insertSongs(songTitle, singersName, songYear, starRating);

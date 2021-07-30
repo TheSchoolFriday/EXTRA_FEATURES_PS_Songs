@@ -9,13 +9,15 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
+import android.widget.RatingBar;
 import android.widget.Toast;
 
 public class thirdActivity extends AppCompatActivity {
 
     EditText etTitle, etSinger, etYear, etId;
-    RadioButton rb1, rb2, rb3, rb4, rb5;
-    RadioGroup rg;
+//    RadioButton rb1, rb2, rb3, rb4, rb5;
+//    RadioGroup rg;
+    RatingBar ratingBar;
     Button btnUpdate, btnDelete, btnCancel;
 
     @Override
@@ -23,7 +25,8 @@ public class thirdActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_third);
 
-        rg = findViewById(R.id.rbGroup2);
+//        rg = findViewById(R.id.rbGroup2);
+        ratingBar = findViewById(R.id.ratingBar3);
 
         etTitle = findViewById(R.id.etSongTitle2);
         etSinger = findViewById(R.id.etSingersName2);
@@ -34,11 +37,11 @@ public class thirdActivity extends AppCompatActivity {
         btnDelete = findViewById(R.id.btnDelete);
         btnCancel = findViewById(R.id.btnCancel);
 
-        rb1 = findViewById(R.id.rbStar1);
-        rb2 = findViewById(R.id.rbStar2);
-        rb3 = findViewById(R.id.rbStar3);
-        rb4 = findViewById(R.id.rbStar4);
-        rb5 = findViewById(R.id.rbStar5);
+//        rb1 = findViewById(R.id.rbStar1);
+//        rb2 = findViewById(R.id.rbStar2);
+//        rb3 = findViewById(R.id.rbStar3);
+//        rb4 = findViewById(R.id.rbStar4);
+//        rb5 = findViewById(R.id.rbStar5);
 
         Intent i = getIntent();
         final Song obtainedSong = (Song) i.getSerializableExtra("song");
@@ -48,25 +51,25 @@ public class thirdActivity extends AppCompatActivity {
         etSinger.setText(obtainedSong.getSingers());
         etYear.setText(String.valueOf(obtainedSong.getYear()));
 
-        int amountOfStars = obtainedSong.getStars();
+        int amountOfStars = Math.round(ratingBar.getRating());
 
-        switch (amountOfStars) {
-            case 1:
-                rb1.setChecked(true);
-                break;
-            case 2:
-                rb2.setChecked(true);
-                break;
-            case 3:
-                rb3.setChecked(true);
-                break;
-            case 4:
-                rb4.setChecked(true);
-                break;
-            case 5:
-                rb5.setChecked(true);
-                break;
-        }
+//        switch (amountOfStars) {
+//            case 1:
+//                rb1.setChecked(true);
+//                break;
+//            case 2:
+//                rb2.setChecked(true);
+//                break;
+//            case 3:
+//                rb3.setChecked(true);
+//                break;
+//            case 4:
+//                rb4.setChecked(true);
+//                break;
+//            case 5:
+//                rb5.setChecked(true);
+//                break;
+//        }
 
         btnUpdate.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -76,22 +79,22 @@ public class thirdActivity extends AppCompatActivity {
                 obtainedSong.setSingers(etSinger.getText().toString());
                 obtainedSong.setYear(Integer.parseInt(etYear.getText().toString()));
 
-                int selectedID = rg.getCheckedRadioButtonId();
-                int starRating = 0;
+//                int selectedID = rg.getCheckedRadioButtonId();
+//                int starRating = 0;
+//
+//                if (selectedID == R.id.rbStar1) {
+//                    starRating = 1;
+//                } else if (selectedID == R.id.rbStar2) {
+//                    starRating = 2;
+//                } else if (selectedID == R.id.rbStar3) {
+//                    starRating = 3;
+//                } else if (selectedID == R.id.rbStar4) {
+//                    starRating = 4;
+//                } else if (selectedID == R.id.rbStar5) {
+//                    starRating = 5;
+//                }
 
-                if (selectedID == R.id.rbStar1) {
-                    starRating = 1;
-                } else if (selectedID == R.id.rbStar2) {
-                    starRating = 2;
-                } else if (selectedID == R.id.rbStar3) {
-                    starRating = 3;
-                } else if (selectedID == R.id.rbStar4) {
-                    starRating = 4;
-                } else if (selectedID == R.id.rbStar5) {
-                    starRating = 5;
-                }
-
-                obtainedSong.setStars(starRating);
+                obtainedSong.setStars(amountOfStars);
                 int number = dbh.updateSong(obtainedSong);
                 btnCancel.performClick();
             }

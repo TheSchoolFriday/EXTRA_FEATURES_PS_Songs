@@ -58,6 +58,14 @@ public class Song implements Serializable {
         this.stars = stars;
     }
 
+    public String starsToText() {
+        String messageToStars = "";
+        for (int i = 0; i < stars; i++) {
+            messageToStars += "*";
+        }
+
+        return messageToStars;
+    }
     @Override
     public String toString() {
 
